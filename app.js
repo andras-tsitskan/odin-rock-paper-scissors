@@ -25,6 +25,7 @@ function getPlayerSelection() {
   let playerSelection = prompt("Select rock, paper or scissors.");
   playerSelection = playerSelection.toLowerCase();
   console.log(playerSelection);
+  return playerSelection;
 }
 
 getPlayerSelection();
