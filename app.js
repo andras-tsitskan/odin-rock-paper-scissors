@@ -64,5 +64,5 @@ function playSingleRound(playerSelection, computerSelection) {
   return roundResult;
 }
 
-playSingleRound(getComputerSelection(), getPlayerSelection());
+playSingleRound(getPlayerSelection(), getComputerSelection());
 // console.log(roundResult);
