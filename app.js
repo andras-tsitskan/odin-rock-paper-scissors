@@ -6,12 +6,12 @@ function getComputerSelection() {
   console.log(randomNumber);
   switch (randomNumber) {
     case 1:
-      computerSelection = "Rock";
+      computerSelection = "rock";
       break;
     case 2:
-      computerSelection = "Paper";
+      computerSelection = "paper";
     case 3:
-      computerSelection = "Scissors";
+      computerSelection = "scissors";
     default:
       break;
   }
