@@ -15,7 +15,7 @@ function getComputerSelection() {
     default:
       break;
   }
-  console.log(`Computer selection: ${computerSelection}`);
+  // console.log(`Computer selection: ${computerSelection}`);
   return computerSelection;
 }
 
@@ -24,7 +24,7 @@ function getComputerSelection() {
 function getPlayerSelection() {
   let playerSelection = prompt("Select rock, paper or scissors.");
   playerSelection = playerSelection.toLowerCase();
-  console.log(`Player selection: ${playerSelection}`);
+  // console.log(`Player selection: ${playerSelection}`);
   return playerSelection;
 }
 
@@ -73,11 +73,22 @@ function game() {
   let playerScore = 0;
   let computerScore = 0;
   for (let roundNumber = 0; roundNumber < 5; roundNumber++) {
-    playRound(getPlayerSelection(), getComputerSelection()).includes("win")
-      ? playerScore++
-      : computerScore++;
-    console.log("Player score: " + playerScore);
-    console.log("Computer score: " + computerScore);
+    let roundResult = playRound(getPlayerSelection(), getComputerSelection());
+    if (roundResult.includes("tie")) {
+      continue;
+    } else {
+      roundResult.includes("win") ? playerScore++ : computerScore++;
+    }
+  }
+  console.log("Five rounds have finished.");
+  console.log(`Player score: ${playerScore}.`);
+  console.log(`Computer score: ${computerScore}.`);
+  if (playerScore > computerScore) {
+    console.log("You won the game! Hurray!");
+  } else if (playerScore < computerScore) {
+    console.log("You lost the game, sorry. :(");
+  } else {
+    console.log("The game ended in tie.");
   }
 }
 
