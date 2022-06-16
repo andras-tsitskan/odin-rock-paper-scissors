@@ -30,7 +30,7 @@ function getPlayerSelection() {
 
 // getPlayerSelection();
 
-function playSingleRound(playerSelection, computerSelection) {
+function playRound(playerSelection, computerSelection) {
   let roundResult;
   if (playerSelection === computerSelection) {
     roundResult = "It is a tie!";
@@ -64,5 +64,5 @@ function playSingleRound(playerSelection, computerSelection) {
   return roundResult;
 }
 
-playSingleRound(getPlayerSelection(), getComputerSelection());
+playRound(getPlayerSelection(), getComputerSelection());
 // console.log(roundResult);
