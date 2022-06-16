@@ -64,5 +64,21 @@ function playRound(playerSelection, computerSelection) {
   return roundResult;
 }
 
-playRound(getPlayerSelection(), getComputerSelection());
+// playRound(getPlayerSelection(), getComputerSelection());
+// playRound(getPlayerSelection(), getComputerSelection()).includes("win");
+
 // console.log(roundResult);
+
+function game() {
+  let playerScore = 0;
+  let computerScore = 0;
+  for (let roundNumber = 0; roundNumber < 5; roundNumber++) {
+    playRound(getPlayerSelection(), getComputerSelection()).includes("win")
+      ? playerScore++
+      : computerScore++;
+    console.log("Player score: " + playerScore);
+    console.log("Computer score: " + computerScore);
+  }
+}
+
+game();
