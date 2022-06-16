@@ -3,7 +3,6 @@
 function getComputerSelection() {
   let computerSelection;
   let randomNumber = Math.ceil(Math.random() * 3);
-  //   console.log(randomNumber);
   switch (randomNumber) {
     case 1:
       computerSelection = "rock";
@@ -15,20 +14,14 @@ function getComputerSelection() {
     default:
       break;
   }
-  // console.log(`Computer selection: ${computerSelection}`);
   return computerSelection;
 }
-
-// getComputerSelection();
 
 function getPlayerSelection() {
   let playerSelection = prompt("Select rock, paper or scissors.");
   playerSelection = playerSelection.toLowerCase();
-  // console.log(`Player selection: ${playerSelection}`);
   return playerSelection;
 }
-
-// getPlayerSelection();
 
 function playRound(playerSelection, computerSelection) {
   let roundResult;
@@ -63,11 +56,6 @@ function playRound(playerSelection, computerSelection) {
   console.log(roundResult);
   return roundResult;
 }
-
-// playRound(getPlayerSelection(), getComputerSelection());
-// playRound(getPlayerSelection(), getComputerSelection()).includes("win");
-
-// console.log(roundResult);
 
 function game() {
   let playerScore = 0;
