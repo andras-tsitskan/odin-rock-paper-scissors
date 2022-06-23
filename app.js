@@ -80,4 +80,4 @@ function game() {
   }
 }
 
-game();
+// game();

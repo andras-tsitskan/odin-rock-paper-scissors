@@ -10,17 +10,20 @@
   </head>
   <body>
     <div class="wrapper">
-      <h1>Welcome to Rock-Paper-Scissors!</h1>
-      <p>
-        Should you not be familiar with the game, familiarise yourself by
-        reading the article
-        <a
-          href="https://en.wikipedia.org/wiki/Rock_paper_scissors"
-          target="_blank"
-          >here</a
-        >.
-      </p>
-      <div>
+      <header>
+        <h1>Welcome to Rock-Paper-Scissors!</h1>
+        <p>
+          Should you not be familiar with the game, familiarise yourself by
+          reading the article
+          <a
+            href="https://en.wikipedia.org/wiki/Rock_paper_scissors"
+            target="_blank"
+            >here</a
+          >.
+        </p>
+      </header>
+
+      <section>
         <h2>Round 1</h2>
         <p>Choose rock, paper, or scissors:</p>
         <div class="buttons">
@@ -28,8 +31,9 @@
           <button class="btn btn-paper">PAPER</button>
           <button class="btn btn-scissors">SCISSORS</button>
         </div>
-      </div>
-      <div>
+      </section>
+      
+      <section>
         <div class="choices">
           <p>You chose <span id="player-choice"></span></p>
           <p>Computer chose <span id="computer-choice"></span></p>
@@ -41,6 +45,6 @@
         </div>
       </div>
       <p id="message">Next round. Choose again.</p>
-    </div>
+    </section>
   </body>
 </html>
