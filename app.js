@@ -22,6 +22,7 @@ function getComputerSelection() {
 const playerChoiceButtons = document.querySelectorAll(".js-btn");
 const playerChoiceSpan = document.querySelector("#js-player-choice");
 const computerChoiceSpan = document.querySelector("#js-computer-choice");
+const roundResultSpan = document.querySelector("#js-round-result");
 const playerScoreSpan = document.querySelector("#js-player-score");
 const computerScoreSpan = document.querySelector("#js-computer-score");
 
