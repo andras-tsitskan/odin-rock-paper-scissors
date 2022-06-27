@@ -26,7 +26,7 @@ const playerScoreSpan = document.querySelector("#js-player-score");
 const computerScoreSpan = document.querySelector("#js-computer-score");
 
 for (const button of playerChoiceButtons) {
-  button.addEventListener("click", () => {});
+  button.addEventListener("click", playRound);
 }
 
 function getPlayerSelection(event) {
@@ -34,38 +34,51 @@ function getPlayerSelection(event) {
   return event.target.textContent.toLowerCase();
 }
 
-function playRound(playerSelection, computerSelection) {
-  let roundResult;
-  if (playerSelection === computerSelection) {
-    roundResult = "It is a tie!";
-  } else {
-    switch (true) {
-      case playerSelection === "rock" && computerSelection === "paper":
-        roundResult = "You lose. :( Paper beats rock.";
-        break;
-      case playerSelection === "rock" && computerSelection === "scissors":
-        roundResult = "You win! :) Rock beats scissors.";
-        break;
-      case playerSelection === "paper" && computerSelection === "rock":
-        roundResult = "You win! :) Paper beats rock.";
-        break;
-      case playerSelection === "paper" && computerSelection === "scissors":
-        roundResult = "You lose. :( Scissors beat paper.";
-        break;
-      case playerSelection === "scissors" && computerSelection === "rock":
-        roundResult = "You lose. :( Rock beats scissors.";
-        break;
-      case playerSelection === "scissors" && computerSelection === "paper":
-        roundResult = "You win! :) Scissors beat paper.";
-        break;
+function playRound() {
+  let playerSelection = getPlayerSelection(event);
+  playerChoiceSpan.textContent = playerSelection;
 
-      default:
-        roundResult = "Something went wrong. Try again.";
-        break;
-    }
+  let computerSelection = getComputerSelection();
+  computerChoiceSpan.textContent = computerSelection;
+
+  const round = {
+    result: "",
+    message: "",
+  };
+
+  switch (true) {
+    case playerSelection === computerSelection:
+      round.result = "tie";
+      round.message = "It is a tie!";
+      break;
+    case playerSelection === "rock" && computerSelection === "paper":
+      round.result = "loss";
+      round.message = "You lose. :( Paper beats rock.";
+      break;
+    case playerSelection === "rock" && computerSelection === "scissors":
+      round.result = "victory";
+      round.message = "You win! :) Rock beats scissors.";
+      break;
+    case playerSelection === "paper" && computerSelection === "rock":
+      round.result = "victory";
+      round.message = "You win! :) Paper beats rock.";
+      break;
+    case playerSelection === "paper" && computerSelection === "scissors":
+      round.result = "loss";
+      round.message = "You lose. :( Scissors beat paper.";
+      break;
+    case playerSelection === "scissors" && computerSelection === "rock":
+      round.result = "loss";
+      round.message = "You lose. :( Rock beats scissors.";
+      break;
+    case playerSelection === "scissors" && computerSelection === "paper":
+      round.result = "victory";
+      round.message = "You win! :) Scissors beat paper.";
+      break;
   }
-  console.log(roundResult);
-  return roundResult;
+
+  console.log(round);
+  return round;
 }
 
 function game() {
