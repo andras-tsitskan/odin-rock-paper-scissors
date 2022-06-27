@@ -25,10 +25,9 @@ const computerChoiceSpan = document.querySelector("#js-computer-choice");
 const playerScoreSpan = document.querySelector("#js-player-score");
 const computerScoreSpan = document.querySelector("#js-computer-score");
 
-function getPlayerSelection() {
-  let playerSelection = prompt("Select rock, paper or scissors.");
-  playerSelection = playerSelection.toLowerCase();
-  return playerSelection;
+function getPlayerSelection(event) {
+  // console.log(event.target.textContent.toLowerCase());
+  return event.target.textContent.toLowerCase();
 }
 
 function playRound(playerSelection, computerSelection) {
