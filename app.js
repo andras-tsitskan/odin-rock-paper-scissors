@@ -25,6 +25,10 @@ const computerChoiceSpan = document.querySelector("#js-computer-choice");
 const playerScoreSpan = document.querySelector("#js-player-score");
 const computerScoreSpan = document.querySelector("#js-computer-score");
 
+for (const button of playerChoiceButtons) {
+  button.addEventListener("click", () => {});
+}
+
 function getPlayerSelection(event) {
   // console.log(event.target.textContent.toLowerCase());
   return event.target.textContent.toLowerCase();
