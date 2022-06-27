@@ -19,11 +19,11 @@ function getComputerSelection() {
   return computerSelection;
 }
 
-function getPlayerSelection() {
-  let playerSelection = prompt("Select rock, paper or scissors.");
-  playerSelection = playerSelection.toLowerCase();
-  return playerSelection;
-}
+const playerChoiceButtons = document.querySelectorAll(".js-btn");
+const playerChoiceSpan = document.querySelector("#js-player-choice");
+const computerChoiceSpan = document.querySelector("#js-computer-choice");
+const playerScoreSpan = document.querySelector("#js-player-score");
+const computerScoreSpan = document.querySelector("#js-computer-score");
 
 function playRound(playerSelection, computerSelection) {
   let roundResult;
