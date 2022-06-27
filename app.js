@@ -9,8 +9,10 @@ function getComputerSelection() {
       break;
     case 2:
       computerSelection = "paper";
+      break;
     case 3:
       computerSelection = "scissors";
+      break;
     default:
       break;
   }
