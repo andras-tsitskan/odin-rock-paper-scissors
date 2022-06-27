@@ -78,7 +78,7 @@ function playRound() {
       break;
   }
 
-  console.log(round);
+  roundResultSpan.textContent = round.message;
   return round;
 }
 
