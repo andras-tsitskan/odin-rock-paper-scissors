@@ -25,7 +25,7 @@ const computerChoiceSpan = document.querySelector("#js-computer-choice");
 const roundResultSpan = document.querySelector("#js-round-result");
 const playerScoreSpan = document.querySelector("#js-player-score");
 const computerScoreSpan = document.querySelector("#js-computer-score");
-const message = document.querySelector("#js-message");
+const messageSpan = document.querySelector("#js-message");
 const resetButton = document.querySelector("#js-btn-reset");
 
 for (const button of playerChoiceButtons) {
@@ -42,7 +42,7 @@ let computerScore = 0;
 
 function playRound() {
   if (playerScore < 5 && computerScore < 5) {
-    message.textContent = "Next round. Choose again.";
+    messageSpan.textContent = "Next round. Choose again.";
 
     let playerSelection = getPlayerSelection(event);
     playerChoiceSpan.textContent = `You chose ${playerSelection}`;
@@ -115,7 +115,7 @@ function resetGame() {
   computerScore = 0;
   playerScoreSpan.textContent = playerScore;
   computerScoreSpan.textContent = computerScore;
-  message.textContent = "Let's begin! Make your choice.";
+  messageSpan.textContent = "Let's begin! Make your choice.";
 }
 
 resetButton.addEventListener("click", resetGame);
