@@ -59,7 +59,6 @@ function playRound() {
       case playerSelection === computerSelection:
         round.result = "tie";
         round.message = "It is a tie!";
-
         break;
       case playerSelection === "rock" && computerSelection === "paper":
         round.result = "loss";
@@ -96,14 +95,10 @@ function playRound() {
     roundResultSpan.textContent = round.message;
     playerScoreSpan.textContent = playerScore;
     computerScoreSpan.textContent = computerScore;
+
+    postGame();
+
     return round;
-  } else if (playerScore == 5) {
-    message.textContent = "VICTORY!";
-  } else if (computerScore == 5) {
-    message.textContent = "That's bad, computer won.";
-  } else {
-    playerScore = 0;
-    computerScore = 0;
   }
 }
 
@@ -119,3 +114,13 @@ function resetGame() {
 }
 
 resetButton.addEventListener("click", resetGame);
+
+function postGame() {
+  if (playerScore == 5) {
+    messageSpan.textContent =
+      "VICTORY! You won the game! If you want to play again, click reset.";
+  } else if (computerScore == 5) {
+    messageSpan.textContent =
+      "That's bad, computer won the game. Click reset to start again.";
+  }
+}
