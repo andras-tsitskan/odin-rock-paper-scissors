@@ -29,22 +29,26 @@ header p {
   margin: 1rem 0;
 }
 
-header a {
-  background-color: hsl(0, 0%, 90%);
-  text-decoration: none;
-  color: black;
-}
-
-header a:hover {
-  background-color: black;
-  color: white;
-}
-
 p.message,
 .choices,
 p.round-result,
 .scores {
   margin: 1rem 0;
+}
+
+footer {
+  margin-top: 2rem;
+}
+
+a {
+  background-color: hsl(0, 0%, 90%);
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  background-color: black;
+  color: white;
 }
 
 .btn {
