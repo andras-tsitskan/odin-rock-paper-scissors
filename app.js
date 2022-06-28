@@ -26,6 +26,7 @@ const roundResultSpan = document.querySelector("#js-round-result");
 const playerScoreSpan = document.querySelector("#js-player-score");
 const computerScoreSpan = document.querySelector("#js-computer-score");
 const message = document.querySelector("#js-message");
+const resetButton = document.querySelector("#js-btn-reset");
 
 for (const button of playerChoiceButtons) {
   button.addEventListener("click", playRound);
@@ -107,3 +108,11 @@ function playRound() {
     computerScore = 0;
   }
 }
+
+function resetGame() {
+  playerScore = 0;
+  computerScore = 0;
+  message.textContent = "Let's begin! Make your choice.";
+}
+
+resetButton.addEventListener("click", resetGame);
