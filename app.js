@@ -41,16 +41,14 @@ let playerScore = 0;
 let computerScore = 0;
 
 function playRound() {
-  if (playerScore == 0 && computerScore == 0) {
-    message.textContent = "First round. Make your choice.";
-  } else if (playerScore < 5 && computerScore < 5) {
+  if (playerScore < 5 && computerScore < 5) {
     message.textContent = "Next round. Choose again.";
 
     let playerSelection = getPlayerSelection(event);
-    playerChoiceSpan.textContent = playerSelection;
+    playerChoiceSpan.textContent = `You chose ${playerSelection}`;
 
     let computerSelection = getComputerSelection();
-    computerChoiceSpan.textContent = computerSelection;
+    computerChoiceSpan.textContent = `Computer chose ${computerSelection}`;
 
     const round = {
       result: "",
@@ -110,8 +108,13 @@ function playRound() {
 }
 
 function resetGame() {
+  playerChoiceSpan.textContent = "";
+  computerChoiceSpan.textContent = "";
+  roundResultSpan.textContent = "";
   playerScore = 0;
   computerScore = 0;
+  playerScoreSpan.textContent = playerScore;
+  computerScoreSpan.textContent = computerScore;
   message.textContent = "Let's begin! Make your choice.";
 }
 
