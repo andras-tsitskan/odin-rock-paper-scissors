@@ -73,7 +73,8 @@ function playRound() {
     roundNumberSpan.textContent = roundNumber;
   }
 
-  postGame();
+  // Run game over check.
+  gameOver();
 }
 
 function getComputerSelection() {
@@ -97,7 +98,8 @@ function getPlayerSelection(event) {
   return event.target.textContent.toLowerCase();
 }
 
-function postGame() {
+// Checks whether game is over (player or computer score reaches 5) and then displays game result.
+function gameOver() {
   if (playerScore == 5) {
     messageSpan.textContent =
       "VICTORY! You won the game! If you want to play again, click reset.";
