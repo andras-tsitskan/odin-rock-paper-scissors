@@ -24,10 +24,10 @@ function playRound() {
   // Function runs till player or computer reaches score 5.
   if (playerScore < 5 && computerScore < 5) {
     let playerSelection = getPlayerSelection(event);
-    playerChoiceSpan.textContent = `You chose ${playerSelection}`;
+    playerChoiceSpan.textContent = `You chose ${playerSelection}.`;
 
     let computerSelection = getComputerSelection();
-    computerChoiceSpan.textContent = `Computer chose ${computerSelection}`;
+    computerChoiceSpan.textContent = `Computer chose ${computerSelection}.`;
 
     messageSpan.textContent = "Next round. Choose again.";
 
@@ -35,30 +35,30 @@ function playRound() {
 
     switch (true) {
       case playerSelection === computerSelection:
-        roundMessage = "It is a tie!";
+        roundMessage = "This round was a tie!";
         break;
       case playerSelection === "rock" && computerSelection === "paper":
-        roundMessage = "You lose. :( Paper beats rock.";
+        roundMessage = "You lost this round. :( Paper beats rock.";
         ++computerScore;
         break;
       case playerSelection === "rock" && computerSelection === "scissors":
-        roundMessage = "You win! :) Rock beats scissors.";
+        roundMessage = "You won this round! :) Rock beats scissors.";
         ++playerScore;
         break;
       case playerSelection === "paper" && computerSelection === "rock":
-        roundMessage = "You win! :) Paper beats rock.";
+        roundMessage = "You won this round! :) Paper beats rock.";
         ++playerScore;
         break;
       case playerSelection === "paper" && computerSelection === "scissors":
-        roundMessage = "You lose. :( Scissors beat paper.";
+        roundMessage = "You lost this round. :( Scissors beat paper.";
         ++computerScore;
         break;
       case playerSelection === "scissors" && computerSelection === "rock":
-        roundMessage = "You lose. :( Rock beats scissors.";
+        roundMessage = "You lost this round. :( Rock beats scissors.";
         ++computerScore;
         break;
       case playerSelection === "scissors" && computerSelection === "paper":
-        roundMessage = "You win! :) Scissors beat paper.";
+        roundMessage = "You won this round! :) Scissors beat paper.";
         ++playerScore;
         break;
     }
@@ -107,7 +107,7 @@ function gameOver() {
   } else if (computerScore == 5) {
     messageSpan.classList.add("highlight");
     messageSpan.textContent =
-      "That's bad, computer won the game. Click reset to start again.";
+      "That's bad, computer won the game. Click reset to try again.";
   }
 }
 
