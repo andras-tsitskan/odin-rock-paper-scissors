@@ -3,7 +3,7 @@
 // Initial values of scores and round number.
 let playerScore = 0;
 let computerScore = 0;
-let roundNumber = 1;
+let roundCount = 1;
 
 // All the selectors in the order of them appearing in HTML.
 const roundCounterSpan = document.querySelector("#js-round-counter");
@@ -69,8 +69,8 @@ function playRound() {
     computerScoreSpan.textContent = computerScore;
 
     // Update round count.
-    roundNumber++;
-    roundCounterSpan.textContent = roundNumber;
+    roundCount++;
+    roundCounterSpan.textContent = roundCount;
   }
 
   // Run game over check.
@@ -110,6 +110,7 @@ function gameOver() {
 }
 
 function resetGame() {
+  roundCounterSpan.textContent = "1";
   playerChoiceSpan.textContent = "";
   computerChoiceSpan.textContent = "";
   roundResultSpan.textContent = "";
