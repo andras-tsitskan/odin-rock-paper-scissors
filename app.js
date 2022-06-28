@@ -114,8 +114,9 @@ function gameOver() {
 // Reset the game to initial values.
 function resetGame() {
   roundCount = 1;
-  messageSpan.classList.remove("highlight");
   roundCounterSpan.textContent = roundCount;
+  messageSpan.classList.remove("highlight");
+  messageSpan.textContent = "Let's begin! Make your choice.";
   playerChoiceSpan.innerHTML = "&nbsp;";
   computerChoiceSpan.innerHTML = "&nbsp;";
   roundResultSpan.innerHTML = "&nbsp;";
@@ -123,7 +124,6 @@ function resetGame() {
   playerScoreSpan.textContent = playerScore;
   computerScore = 0;
   computerScoreSpan.textContent = computerScore;
-  messageSpan.textContent = "Let's begin! Make your choice.";
 }
 
 resetButton.addEventListener("click", resetGame);
