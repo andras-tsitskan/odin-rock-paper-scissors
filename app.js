@@ -13,8 +13,6 @@ function getComputerSelection() {
     case 3:
       computerSelection = "scissors";
       break;
-    default:
-      break;
   }
   return computerSelection;
 }
@@ -33,7 +31,6 @@ for (const button of playerChoiceButtons) {
 }
 
 function getPlayerSelection(event) {
-  // console.log(event.target.textContent.toLowerCase());
   return event.target.textContent.toLowerCase();
 }
 
