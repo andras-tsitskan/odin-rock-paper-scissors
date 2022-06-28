@@ -101,9 +101,11 @@ function getPlayerSelection(event) {
 // Checks whether game is over (player or computer score reaches 5) and then displays game result.
 function gameOver() {
   if (playerScore == 5) {
+    messageSpan.classList.add("highlight");
     messageSpan.textContent =
       "VICTORY! You won the game! If you want to play again, click reset.";
   } else if (computerScore == 5) {
+    messageSpan.classList.add("highlight");
     messageSpan.textContent =
       "That's bad, computer won the game. Click reset to start again.";
   }
@@ -112,6 +114,7 @@ function gameOver() {
 // Reset the game to initial values.
 function resetGame() {
   roundCount = 1;
+  messageSpan.classList.remove("highlight");
   roundCounterSpan.textContent = roundCount;
   playerChoiceSpan.innerHTML = "&nbsp;";
   computerChoiceSpan.innerHTML = "&nbsp;";
