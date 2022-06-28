@@ -109,14 +109,16 @@ function gameOver() {
   }
 }
 
+// Reset the game to initial values.
 function resetGame() {
-  roundCounterSpan.textContent = "1";
+  roundCount = 1;
+  roundCounterSpan.textContent = roundCount;
   playerChoiceSpan.textContent = "";
   computerChoiceSpan.textContent = "";
   roundResultSpan.textContent = "";
   playerScore = 0;
-  computerScore = 0;
   playerScoreSpan.textContent = playerScore;
+  computerScore = 0;
   computerScoreSpan.textContent = computerScore;
   messageSpan.textContent = "Let's begin! Make your choice.";
 }
