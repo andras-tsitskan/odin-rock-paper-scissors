@@ -25,6 +25,7 @@ const playerScoreSpan = document.querySelector("#js-player-score");
 const computerScoreSpan = document.querySelector("#js-computer-score");
 const messageSpan = document.querySelector("#js-message");
 const resetButton = document.querySelector("#js-btn-reset");
+const roundNumberSpan = document.querySelector("#js-round-number");
 
 for (const button of playerChoiceButtons) {
   button.addEventListener("click", playRound);
@@ -36,6 +37,7 @@ function getPlayerSelection(event) {
 
 let playerScore = 0;
 let computerScore = 0;
+let roundNumber = 1;
 
 function playRound() {
   if (playerScore < 5 && computerScore < 5) {
@@ -92,6 +94,9 @@ function playRound() {
     roundResultSpan.textContent = round.message;
     playerScoreSpan.textContent = playerScore;
     computerScoreSpan.textContent = computerScore;
+
+    roundNumber++;
+    roundNumberSpan.textContent = roundNumber;
 
     postGame();
 
