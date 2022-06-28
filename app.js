@@ -113,9 +113,9 @@ function gameOver() {
 function resetGame() {
   roundCount = 1;
   roundCounterSpan.textContent = roundCount;
-  playerChoiceSpan.textContent = "";
-  computerChoiceSpan.textContent = "";
-  roundResultSpan.textContent = "";
+  playerChoiceSpan.innerHTML = "&nbsp;";
+  computerChoiceSpan.innerHTML = "&nbsp;";
+  roundResultSpan.innerHTML = "&nbsp;";
   playerScore = 0;
   playerScoreSpan.textContent = playerScore;
   computerScore = 0;
