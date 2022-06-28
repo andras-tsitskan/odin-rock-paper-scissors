@@ -1,5 +1,81 @@
 "use strict";
 
+// Initial values of scores and round number.
+let playerScore = 0;
+let computerScore = 0;
+let roundNumber = 1;
+
+// All the selectors in the order of them appearing in HTML.
+const roundNumberSpan = document.querySelector("#js-round-number");
+const playerChoiceButtons = document.querySelectorAll(".js-btn");
+const playerChoiceSpan = document.querySelector("#js-player-choice");
+const computerChoiceSpan = document.querySelector("#js-computer-choice");
+const roundResultSpan = document.querySelector("#js-round-result");
+const playerScoreSpan = document.querySelector("#js-player-score");
+const computerScoreSpan = document.querySelector("#js-computer-score");
+const messageSpan = document.querySelector("#js-message");
+const resetButton = document.querySelector("#js-btn-reset");
+
+for (const button of playerChoiceButtons) {
+  button.addEventListener("click", playRound);
+}
+
+function playRound() {
+  // Function runs till player or computer reaches score 5.
+  if (playerScore < 5 && computerScore < 5) {
+    let playerSelection = getPlayerSelection(event);
+    playerChoiceSpan.textContent = `You chose ${playerSelection}`;
+
+    let computerSelection = getComputerSelection();
+    computerChoiceSpan.textContent = `Computer chose ${computerSelection}`;
+
+    messageSpan.textContent = "Next round. Choose again.";
+
+    let roundMessage;
+
+    switch (true) {
+      case playerSelection === computerSelection:
+        roundMessage = "It is a tie!";
+        break;
+      case playerSelection === "rock" && computerSelection === "paper":
+        roundMessage = "You lose. :( Paper beats rock.";
+        ++computerScore;
+        break;
+      case playerSelection === "rock" && computerSelection === "scissors":
+        roundMessage = "You win! :) Rock beats scissors.";
+        ++playerScore;
+        break;
+      case playerSelection === "paper" && computerSelection === "rock":
+        roundMessage = "You win! :) Paper beats rock.";
+        ++playerScore;
+        break;
+      case playerSelection === "paper" && computerSelection === "scissors":
+        roundMessage = "You lose. :( Scissors beat paper.";
+        ++computerScore;
+        break;
+      case playerSelection === "scissors" && computerSelection === "rock":
+        roundMessage = "You lose. :( Rock beats scissors.";
+        ++computerScore;
+        break;
+      case playerSelection === "scissors" && computerSelection === "paper":
+        roundMessage = "You win! :) Scissors beat paper.";
+        ++playerScore;
+        break;
+    }
+
+    // Show round result and update score.
+    roundResultSpan.textContent = roundMessage;
+    playerScoreSpan.textContent = playerScore;
+    computerScoreSpan.textContent = computerScore;
+
+    // Update round count.
+    roundNumber++;
+    roundNumberSpan.textContent = roundNumber;
+  }
+
+  postGame();
+}
+
 function getComputerSelection() {
   let computerSelection;
   let randomNumber = Math.ceil(Math.random() * 3);
@@ -17,90 +93,17 @@ function getComputerSelection() {
   return computerSelection;
 }
 
-const playerChoiceButtons = document.querySelectorAll(".js-btn");
-const playerChoiceSpan = document.querySelector("#js-player-choice");
-const computerChoiceSpan = document.querySelector("#js-computer-choice");
-const roundResultSpan = document.querySelector("#js-round-result");
-const playerScoreSpan = document.querySelector("#js-player-score");
-const computerScoreSpan = document.querySelector("#js-computer-score");
-const messageSpan = document.querySelector("#js-message");
-const resetButton = document.querySelector("#js-btn-reset");
-const roundNumberSpan = document.querySelector("#js-round-number");
-
-for (const button of playerChoiceButtons) {
-  button.addEventListener("click", playRound);
-}
-
 function getPlayerSelection(event) {
   return event.target.textContent.toLowerCase();
 }
 
-let playerScore = 0;
-let computerScore = 0;
-let roundNumber = 1;
-
-function playRound() {
-  if (playerScore < 5 && computerScore < 5) {
-    messageSpan.textContent = "Next round. Choose again.";
-
-    let playerSelection = getPlayerSelection(event);
-    playerChoiceSpan.textContent = `You chose ${playerSelection}`;
-
-    let computerSelection = getComputerSelection();
-    computerChoiceSpan.textContent = `Computer chose ${computerSelection}`;
-
-    const round = {
-      result: "",
-      message: "",
-    };
-
-    switch (true) {
-      case playerSelection === computerSelection:
-        round.result = "tie";
-        round.message = "It is a tie!";
-        break;
-      case playerSelection === "rock" && computerSelection === "paper":
-        round.result = "loss";
-        round.message = "You lose. :( Paper beats rock.";
-        ++computerScore;
-        break;
-      case playerSelection === "rock" && computerSelection === "scissors":
-        round.result = "victory";
-        round.message = "You win! :) Rock beats scissors.";
-        ++playerScore;
-        break;
-      case playerSelection === "paper" && computerSelection === "rock":
-        round.result = "victory";
-        round.message = "You win! :) Paper beats rock.";
-        ++playerScore;
-        break;
-      case playerSelection === "paper" && computerSelection === "scissors":
-        round.result = "loss";
-        round.message = "You lose. :( Scissors beat paper.";
-        ++computerScore;
-        break;
-      case playerSelection === "scissors" && computerSelection === "rock":
-        round.result = "loss";
-        round.message = "You lose. :( Rock beats scissors.";
-        ++computerScore;
-        break;
-      case playerSelection === "scissors" && computerSelection === "paper":
-        round.result = "victory";
-        round.message = "You win! :) Scissors beat paper.";
-        ++playerScore;
-        break;
-    }
-
-    roundResultSpan.textContent = round.message;
-    playerScoreSpan.textContent = playerScore;
-    computerScoreSpan.textContent = computerScore;
-
-    roundNumber++;
-    roundNumberSpan.textContent = roundNumber;
-
-    postGame();
-
-    return round;
+function postGame() {
+  if (playerScore == 5) {
+    messageSpan.textContent =
+      "VICTORY! You won the game! If you want to play again, click reset.";
+  } else if (computerScore == 5) {
+    messageSpan.textContent =
+      "That's bad, computer won the game. Click reset to start again.";
   }
 }
 
@@ -116,13 +119,3 @@ function resetGame() {
 }
 
 resetButton.addEventListener("click", resetGame);
-
-function postGame() {
-  if (playerScore == 5) {
-    messageSpan.textContent =
-      "VICTORY! You won the game! If you want to play again, click reset.";
-  } else if (computerScore == 5) {
-    messageSpan.textContent =
-      "That's bad, computer won the game. Click reset to start again.";
-  }
-}
