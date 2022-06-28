@@ -7,7 +7,52 @@
   font-family: "JetBrains Mono", monospace;
 }
 
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .wrapper {
   max-width: 700px;
-  margin: 0 auto;
+  margin: 1rem auto 1rem auto;
+  padding: 0 1rem;
+}
+
+header h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+header p {
+  margin: 1rem 0;
+}
+
+header a {
+  background-color: hsl(0, 0%, 90%);
+  text-decoration: none;
+  color: black;
+}
+
+header a:hover {
+  background-color: black;
+  color: white;
+}
+
+p.message,
+.choices,
+p.round-result,
+.scores {
+  margin: 1rem 0;
+}
+
+.btn {
+  padding: 0 1rem;
+}
+
+.highlight {
+  font-weight: bold;
+  background-color: gold;
+  color: black;
 }
