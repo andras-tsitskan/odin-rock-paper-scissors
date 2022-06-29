@@ -24,41 +24,41 @@ function playRound() {
   // Function runs till player or computer reaches score 5.
   if (playerScore < 5 && computerScore < 5) {
     let playerSelection = getPlayerSelection(event);
-    playerChoiceSpan.textContent = `You chose ${playerSelection}.`;
+    playerChoiceSpan.textContent = `Sinu valik: ${playerSelection}.`;
 
     let computerSelection = getComputerSelection();
-    computerChoiceSpan.textContent = `Computer chose ${computerSelection}.`;
+    computerChoiceSpan.textContent = `Arvuti valik: ${computerSelection}.`;
 
-    messageSpan.textContent = "Next round. Choose again.";
+    messageSpan.textContent = "Järgmine ring. Vali uuesti.";
 
     let roundMessage;
 
     switch (true) {
       case playerSelection === computerSelection:
-        roundMessage = "This round was a tie!";
+        roundMessage = "See ring oli viigis!";
         break;
-      case playerSelection === "rock" && computerSelection === "paper":
-        roundMessage = "You lost this round. :( Paper beats rock.";
+      case playerSelection === "kivi" && computerSelection === "paber":
+        roundMessage = "Sa kaotasid selle ringi. :( Paber võidab kivi.";
         ++computerScore;
         break;
-      case playerSelection === "rock" && computerSelection === "scissors":
-        roundMessage = "You won this round! :) Rock beats scissors.";
+      case playerSelection === "kivi" && computerSelection === "käärid":
+        roundMessage = "Sa võitsid selle ringi! :) Kivi võidab käärid.";
         ++playerScore;
         break;
-      case playerSelection === "paper" && computerSelection === "rock":
-        roundMessage = "You won this round! :) Paper beats rock.";
+      case playerSelection === "paber" && computerSelection === "kivi":
+        roundMessage = "Sa võitsid selle ringi! :) Paber võidab kivi.";
         ++playerScore;
         break;
-      case playerSelection === "paper" && computerSelection === "scissors":
-        roundMessage = "You lost this round. :( Scissors beat paper.";
+      case playerSelection === "paber" && computerSelection === "käärid":
+        roundMessage = "Sa kaotasid selle ringi. :( Käärid võidavad paberi.";
         ++computerScore;
         break;
-      case playerSelection === "scissors" && computerSelection === "rock":
-        roundMessage = "You lost this round. :( Rock beats scissors.";
+      case playerSelection === "käärid" && computerSelection === "kivi":
+        roundMessage = "Sa kaotasid selle ringi. :( Kivi võidab käärid.";
         ++computerScore;
         break;
-      case playerSelection === "scissors" && computerSelection === "paper":
-        roundMessage = "You won this round! :) Scissors beat paper.";
+      case playerSelection === "käärid" && computerSelection === "paber":
+        roundMessage = "Sa võitsid selle ringi! :) Käärid võidavad paberi.";
         ++playerScore;
         break;
     }
@@ -82,13 +82,13 @@ function getComputerSelection() {
   let randomNumber = Math.ceil(Math.random() * 3);
   switch (randomNumber) {
     case 1:
-      computerSelection = "rock";
+      computerSelection = "kivi";
       break;
     case 2:
-      computerSelection = "paper";
+      computerSelection = "paber";
       break;
     case 3:
-      computerSelection = "scissors";
+      computerSelection = "käärid";
       break;
   }
   return computerSelection;
@@ -103,11 +103,11 @@ function gameOver() {
   if (playerScore == 5) {
     messageSpan.classList.add("highlight");
     messageSpan.textContent =
-      "VICTORY! You won the game! If you want to play again, click reset.";
+      'VÕIT! Sa võitsid mängu! Kui tahad uuesti mängida, vajuta "Uus mäng".';
   } else if (computerScore == 5) {
     messageSpan.classList.add("highlight");
     messageSpan.textContent =
-      "That's bad, computer won the game. Click reset to try again.";
+      'Jama lugu, arvuti võitis. Vajuta "Uus mäng", et uuesti proovida.';
   }
 }
 
@@ -116,7 +116,8 @@ function resetGame() {
   roundCount = 1;
   roundCounterSpan.textContent = roundCount;
   messageSpan.classList.remove("highlight");
-  messageSpan.textContent = "Let's begin! Make your choice.";
+  messageSpan.textContent =
+    "Alustame! Võidab see, kes saab esimesena 5 punkti. Tee oma valik.";
   playerChoiceSpan.innerHTML = "&nbsp;";
   computerChoiceSpan.innerHTML = "&nbsp;";
   roundResultSpan.innerHTML = "&nbsp;";

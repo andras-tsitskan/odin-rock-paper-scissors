@@ -11,27 +11,26 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1>Welcome to Rock-Paper-Scissors!</h1>
+        <h1>Kivi-paber-käärid!</h1>
         <p>
-          Should you not be familiar with the game, familiarise yourself by
-          reading the article
+          Kui see mäng on sulle võõras, saad reeglite kohta lugeda lähemalt
           <a
-            href="https://en.wikipedia.org/wiki/Rock_paper_scissors"
+            href="https://nupsu.ee/mangi-lapsega-kivi-paber-kaarid/"
             target="_blank"
-            >here</a
+            >siit</a
           >.
         </p>
       </header>
 
       <section>
-        <h2>Round <span id="js-round-counter">1</span></h2>
+        <h2><span id="js-round-counter">1</span>. ring</h2>
         <p id="js-message" class="message">
-          Let's begin! First to win 5 rounds is the winner. Make your choice.
+          Alustame! Võidab see, kes saab esimesena 5 punkti. Tee oma valik.
         </p>
         <div class="buttons">
-          <button class="btn js-btn">ROCK</button>
-          <button class="btn js-btn">PAPER</button>
-          <button class="btn js-btn">SCISSORS</button>
+          <button class="btn js-btn">KIVI</button>
+          <button class="btn js-btn">PABER</button>
+          <button class="btn js-btn">KÄÄRID</button>
         </div>
       </section>
 
@@ -42,10 +41,10 @@
         </div>
         <p id="js-round-result" class="round-result">&nbsp;</p>
         <div class="scores">
-          <p>Your score: <span id="js-player-score">0</span></p>
-          <p>Computer score: <span id="js-computer-score">0</span></p>
+          <p>Sinu punktid: <span id="js-player-score">0</span></p>
+          <p>Arvuti punktid: <span id="js-computer-score">0</span></p>
         </div>
-        <button id="js-btn-reset" class="btn">Reset</button>
+        <button id="js-btn-reset" class="btn">Uus mäng</button>
       </section>
 
       <footer>
